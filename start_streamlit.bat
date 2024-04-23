@@ -1,0 +1,1 @@
+"C:\Users\juhol\AppData\Local\Programs\Python\Python310\Scripts\streamlit.exe" run filter.py
