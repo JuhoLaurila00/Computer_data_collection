@@ -5,8 +5,8 @@ import numpy
 import plotly.graph_objects as go
 import glob
 
-start_time = datetime.datetime(2024,4,22,18,47).timestamp()
-end_time = datetime.datetime(2024,4,22,19,0).timestamp()
+start_time = datetime.datetime(2024,4,23,19,0).timestamp()
+end_time = datetime.datetime(2024,4,23,21,0).timestamp()
 time_step = 5
 rolling_average = 1
 time_range = numpy.linspace(start_time,end_time, num=int((end_time-start_time)/time_step))
@@ -14,7 +14,6 @@ time_range = numpy.linspace(start_time,end_time, num=int((end_time-start_time)/t
 dataframes = []
 for file in glob.iglob('*.csv'):
     dataframes.append(pandas.read_csv(file))
-
 
 options = st.container(border=True)
 option_cols = options.columns(len(dataframes))
@@ -31,6 +30,7 @@ for index, row in checks.loc[checks['enabled']==True].iterrows():
     data = dataframes[checks.loc[index, 'dataframe_id']]
     col = checks.loc[index, 'col_name']
     dev = checks.loc[index, 'device']
+    data[col] = data[col].rolling(window=rolling_average).mean()
     interp_data = numpy.interp(time_range, data['time'], data[col])
     interp_data = numpy.nan_to_num(interp_data)
     fig.add_trace(go.Scatter(x=time_range, y=interp_data, mode='lines', name=f'{dev}-{col}'))
