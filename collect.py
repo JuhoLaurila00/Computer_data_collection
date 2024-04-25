@@ -70,7 +70,7 @@ mon = HWMonitor()
 cpu = pandas.DataFrame(columns=['time', 'ccd_temp', 'package_temp', 'load', 'core_watts', 'package_watts'])
 gpu = pandas.DataFrame(columns=['time', 'temp', 'load', 'load_framebuf', 'load_videngine', 'load_bus', 'watts'])
 a = datetime.datetime.now()
-for i in range (1440):
+for i in range (2880):
     stats = mon.get_info()
     current_time = time.time()
     cpu.loc[len(cpu)] = [current_time] + stats[0]
