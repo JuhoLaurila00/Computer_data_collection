@@ -1,0 +1,83 @@
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.TopBar {
+  background-color: #00001c;
+  position: fixed;
+  height: 50px;
+  width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+  top: 0%;
+}
+
+body {
+  margin: 0px;
+}
+
+.ComponentDropdown {
+  display: flex;
+  justify-content: flex-start;;
+  align-items: center;
+  width:fit-content;
+  height: inherit;
+  color: white;
+  font-family: Arial;
+  font-size: 1.5em;
+}
+
+.ComponentDropdown:hover {
+  background-color: #2b2b4b;
+}
+
+.FilterBar {
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+  height: inherit;
+}
+
+.DropdownContents {
+  position: absolute;
+  top: 50px;
+  color: black;
+  border: 1px solid black;
+  border-top: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  width: fit-content;
+  background-color: white;
+  
+}
+
+.DropdownText {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.DropdownItem {
+  padding-left: 5px;
+  padding-right: 10px;
+}
